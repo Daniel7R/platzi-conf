@@ -49,5 +49,11 @@ module.exports = {
       filename: './assets/[name].css',
     }),
     new dotEnv()
-  ]
+  ],
+  devServer: {
+    static: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 3300,
+    historyApiFallback: true
+  },
 };

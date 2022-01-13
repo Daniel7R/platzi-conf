@@ -11,7 +11,7 @@ const Payment = () => {
 
     const paypalOptions = {
         
-        clientId: "AXcGiz9qTkhksgikXqfTqotbRRE7WJ2F0yZ7Jhbeb7Djv6quW4feGI77LUM59zGxC4VSY_815g9IY1fl",
+        clientId: process.env.CLIENT_ID_PP,
         intent: 'capture',
         currency: 'USD'
     };

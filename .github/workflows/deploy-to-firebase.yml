@@ -12,12 +12,9 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Create env file
-        run: 
-          touch .env
-          echo GOOGLE_API_KEY:${{ secrets.GOOGLE_API_KEY }} >> .env
-          echo CLIENT_ID_PP:${{ secrets.CLIENT_ID_PP }} >> .env
-          cat .env
+        env: 
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          CLIENT_ID_PP: ${{ secrets.CLIENT_ID_PP }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:

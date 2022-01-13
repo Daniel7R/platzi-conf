@@ -13,7 +13,7 @@ const Map = ({data}) => {
         lng: parseFloat(data.lng)
     }
 
-    const apiKey = String(process.env.GOOGLE_API_KEY);
+    const apiKey = String(process.env.GOOGLE_API_KEY); 
 
     return (
         <LoadScript googleMapsApiKey= {apiKey}>

@@ -12,9 +12,12 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-          env: 
-            GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
-            CLIENT_ID_PP: ${{ secrets.CLIENT_ID_PP }}
+      -name: Create env file
+        run: 
+          touch .env
+          echo GOOGLE_API_KEY:${{ secrets.GOOGLE_API_KEY }} >> .env
+          echo CLIENT_ID_PP:${{ secrets.CLIENT_ID_PP }} >> .env
+          cat .env
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
@@ -38,4 +41,3 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          

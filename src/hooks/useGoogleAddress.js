@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 const useGoogleAddress = (address)=> {
 
     const [map, setMap] = useState({});
-    const api = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=AIzaSyAEZjuPK6De2Ws2iVFaCcuXXIm1eunhS44`;
+    const api = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.GOOGLE_API_KEY}`;
 
     useEffect(()=>{
         fetch(api)
